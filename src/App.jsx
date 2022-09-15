@@ -1,12 +1,23 @@
 import React from 'react'
-import { useState } from 'react'
-import TypeWriter from './TypeWriter'
-
+import Typewriter from 'typewriter-effect';
 const App = () => {
-  const[text, setText] = useState("sunda World")
   return (
     <div>
-      <TypeWriter text={text} />
+      <Typewriter
+      onInit={(typewriter) =>{
+        typewriter.typeString("Hello Nabaraj!")
+        .callFunction(() => {
+          console.log('String typed out!');
+        })
+        .pauseFor(4000)
+        .deleteAll()
+        .start()
+      }}
+      options={{
+        loop:true,
+        delay: 5,
+      }}
+      />
     </div>
   )
 }
